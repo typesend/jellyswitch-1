@@ -15,3 +15,8 @@ anchor_tenant = Operator.create({
     crm_enabled: true,
     subdomain: "demo"
 })
+
+first_location = Location.create({
+    name: "Demo Location",
+    operator_id: anchor_tenant
+})
