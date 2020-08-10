@@ -45,7 +45,7 @@ module SessionsHelper
     if !defined?(current_tenant)
       return nil
     end
-    
+
     # this will only return nil if there is more than one location to choose and one has NOT been selected already
 
     # In case I"m a superadmin and my location is set to a different operator
@@ -71,8 +71,8 @@ module SessionsHelper
         raise "No locations configured."
       end
     elsif Location.count == 1 # if I only have one location, use it automatically
-      set_location(current_tenant.locations.first)
-      @current_location = current_tenant.locations.first
+      set_location(Location.first)
+      @current_location = Location.first
     end
   end
 
