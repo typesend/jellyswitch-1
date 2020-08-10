@@ -2,12 +2,12 @@ module Permissions
   # Included as a module in the User class
 
   def allowed_in?(location)
-    member?(location) || 
-    has_active_day_pass? || 
-    checked_in?(location) || 
-    has_active_lease? || 
-    admin? || 
-    has_reservation? || 
+    member?(location) ||
+    has_active_day_pass? ||
+    checked_in?(location) ||
+    has_active_lease? ||
+    admin? ||
+    has_reservation? ||
     has_rsvp?
   end
 
@@ -18,7 +18,7 @@ module Permissions
   end
 
   def should_charge_for_reservation?(location)
-    if operator.production? || operator.subdomain == "southlakecoworking"
+    if operator.production? || operator.subdomain == "demo"
       !(member?(location) || has_active_day_pass? || has_active_lease? || admin?)
     else
       false
@@ -26,7 +26,7 @@ module Permissions
   end
 
   def can_see_all_rooms?(location)
-    if operator.production? || operator.subdomain == "southlakecoworking"
+    if operator.production? || operator.subdomain == "demo"
       member?(location) ||
       has_active_day_pass? ||
       checked_in?(location) ||

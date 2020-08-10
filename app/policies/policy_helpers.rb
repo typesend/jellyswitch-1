@@ -25,7 +25,7 @@ module PolicyHelpers
   def approved?
     is_user? && user.approved?
   end
-  
+
   def owner?
     is_user? && (user == record.user)
   end
@@ -39,7 +39,7 @@ module PolicyHelpers
   end
 
   def billing_enabled?
-    operator.production? || operator.subdomain == "southlakecoworking"
+    operator.production? || operator.subdomain == "demo"
   end
 
   def owner_or_admin?

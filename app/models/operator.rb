@@ -131,11 +131,11 @@ class Operator < ApplicationRecord
   end
 
   def production?
-    billing_state == "production" || subdomain == "southlakecoworking"
+    billing_state == "production" || subdomain == "demo"
   end
 
   def stripe_secret_key
-    if production? && subdomain != "southlakecoworking"
+    if production? && subdomain != "demo"
       Rails.configuration.stripe[:secret_key]
     else
       Rails.configuration.stripe[:test_secret_key]

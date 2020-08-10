@@ -7,7 +7,7 @@ class Demo::SelectOperator
     operator = Operator.find_by(subdomain: subdomain)
 
     if operator
-      if operator.production? && operator.subdomain != "southlakecoworking"
+      if operator.production? && operator.subdomain != "demp"
         context.fail!(message: "Can't run task on production instance: #{operator.name}")
       else
         context.operator = operator
